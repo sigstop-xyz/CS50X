@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+        <form action="/quote" method="post">
+        <input type="text" name="symbol" autofocus placeholder="Stock Ticker">
+        <button class="btn btn-primary" type="submit">Get Price</button>
+        </form>
+    <p>Ticker: {{ stock.name }} Price: {{ stock.price }}</p>
+{% endblock %}

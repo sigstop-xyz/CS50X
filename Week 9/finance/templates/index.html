@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>TOTAL</th>
+    </tr>
+</thead>
+<tbody>
+    {% for purchase in purchases%}
+    <tr>
+        <td>{{purchase.symbol}}</td>
+        <td>{{purchase.total_shares}}</td>
+        <td>{{purchase.price | usd}}</td>
+        <td>{{purchase.total_sum | usd}}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+<tfoot>
+    <tr>
+        <td class="border-0 fw-bold text-end" colspan="3">Cash:</td>
+        <td class="border-0 bold text-end">{{cash}}</td>
+    </tr>
+    <tr>
+        <td class="border-0 fw-bold text-end" colspan="3">TOTAL:</td>
+        <td class="border-0 w-bold text-end">{{total_money}}</td>
+    </tr>
+</tfoot>
+</table>
+
+<form action="/topup" method="post">
+    <input type="text" name="cash" autofocus placeholder="How Much?">
+    <button class="btn btn-primary" type="submit" >Top up</button>
+</form>
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>How much Programming Languages have we learned in CS50 so far?</h3>
+            <button id="wrong1">1</button>
+            <button id="right">3</button>
+            <button id="wrong2">5</button>
+            <p id="p1"></p>
+            <script>
+                // Add code to check answers to questions
+                document.querySelector('#wrong1').addEventListener('click', function(){
+                    document.querySelector('#wrong1').style.backgroundColor = 'red';
+                    document.querySelector('#p1').innerHTML = 'Wrong Answer';
+                });
+
+                document.querySelector('#right').addEventListener('click', function(){
+                    document.querySelector('#right').style.backgroundColor = 'green';
+                    document.querySelector('#p1').innerHTML = 'Right Answer';
+                });
+
+                document.querySelector('#wrong2').addEventListener('click', function(){
+                    document.querySelector('#wrong2').style.backgroundColor = 'red';
+                    document.querySelector('#p1').innerHTML = 'Wrong Answer';
+                });
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>Which animal is the GOAT of CS50?</h3>
+            <form>
+            <input id="text_answer" autofocus autocomplete="off" placeholder="Answerfield....">
+            <button type="submit">Submit Answer</button>
+            <p id="text_answer1"></p>
+            </form>
+            <script>
+
+                document.querySelector('form').addEventListener('submit', function(event){
+                    event.preventDefault();
+                    let answer = document.querySelector('#text_answer').value;
+                    let result = document.querySelector('#text_answer1');
+                    if(answer == 'Duck'){
+                        result.innerHTML = 'Right Answer';
+                        document.querySelector('#text_answer').style.backgroundColor = 'green';
+                    }
+                    else {
+                        result.innerHTML = 'Wrong Answer';
+                        document.querySelector('#text_answer').style.backgroundColor = 'red';
+                    }
+                });
+            </script>
+
+        </div>
+    </div>
+</body>
+</html>

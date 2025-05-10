@@ -1,0 +1,1 @@
+Depending on what songs were heared the most, spotify can know if you like music with more energy or maybe longer playtime.
